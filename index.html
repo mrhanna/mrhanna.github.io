@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<script type="text/javascript" src="scales.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css" media="Screen" />
+		<link rel="stylesheet" type="text/css" href="hstyle.css" media="handheld" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	</head>
+	
+	<body onload='setParams("Ih1WDPBM(dplxao)")'>
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			
+			
+			<p><a href="javascript:void(0)" onclick='setParams("Ih")'>200 level</a> | <a href="javascript:void(0)" onclick='setParams("Ih1WDPBM(dplxao)")'>300 level</a></p>
+			<p><a href="javascript:void(0)" onclick='allParams()'>all</a> | <a href="javascript:void(0)" onclick='setParams("")'>none</a></p>
+		
+			<form onchange="updateParams()">
+				<p class="break"><input type="checkbox" name="scales" value="I" id="I" />
+					<label for="I">major</label></p>
+				<p><input type="checkbox" name="scales" value="n" id="n" />
+					<label for="n">natural minor</label></p>
+				<p><input type="checkbox" name="scales" value="h" id="h" />
+					<label for="h">harmonic minor</label></p>
+				<p><input type="checkbox" name="scales" value="m" id="m" />
+					<label for="m">melodic minor</label></p>
+				
+				<p class="break"><input type="checkbox" name="scales" value="1" id="1" />
+					<label for="1">major 3rds</label></p>
+				<p><input type="checkbox" name="scales" value="2" id="2" />
+					<label for="2">natural minor 3rds</label></p>
+				<p><input type="checkbox" name="scales" value="3" id="3" />
+					<label for="3">harmonic minor 3rds</label></p>
+				<p><input type="checkbox" name="scales" value="4" id="4" />
+					<label for="4">melodic minor 3rds</label></p>
+					
+				<p class="break"><input type="checkbox" name="scales" value="W" id="W" />
+					<label for="W">whole-tone</label></p>
+				<p><input type="checkbox" name="scales" value="D" id="D" />
+					<label for="D">diminished</label></p>
+				<p><input type="checkbox" name="scales" value="A" id="A" />
+					<label for="A">augmented</label></p>
+				
+				<p class="break"><input type="checkbox" name="scales" value="P" id="P" />
+					<label for="P">pentatonic</label></p>
+				<p><input type="checkbox" name="scales" value="B" id="B" />
+					<label for="B">blues</label></p>
+				<p><input type="checkbox" name="scales" value="R" id="R" />
+					<label for="R">Robbie patterns</label></p>
+					
+				<p class="break"><input type="checkbox" name="scales" value="d" id="d" />
+					<label for="d">dorian</label></p>
+				<p><input type="checkbox" name="scales" value="p" id="p" />
+					<label for="p">phrygian</label></p>
+				<p><input type="checkbox" name="scales" value="l" id="l" />
+					<label for="l">lydian</label></p>
+				<p><input type="checkbox" name="scales" value="x" id="x" />
+					<label for="x">mixolydian</label></p>
+				<p><input type="checkbox" name="scales" value="a" id="a" />
+					<label for="a">aeolian</label></p>
+				<p><input type="checkbox" name="scales" value="o" id="o" />
+					<label for="o">locrian</label></p>
+				<br /><br />
+			</form>
+			
+		</div>
+		
+		<!-- Use any element to open the sidenav -->
+		<a href="javascript:void(0)" onclick="openNav()"><img src="gear.png" alt="Settings" /></a>
+	
+	
+		<div id="main" onclick="nextScale()">
+			<div id="note">
+				&nbsp;
+			</div>
+			<div id="scale">
+				Click to begin.
+			</div>
+		</div>
+		
+	</body>
+</html>
