@@ -1,4 +1,5 @@
 const pitchA = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
+const defaultParam = "Ih1WDPBM(dplxao)"; // 300 level
 var params = "";
 
 // randomly select and return a scale string based on user params (i.e. "major," "diminished," etc.)
@@ -119,6 +120,7 @@ function nextScale() {
 }
 
 // creates param string from user settings checklist
+// set a cookie
 function updateParams() {
 	var inputs = document.getElementsByName("scales"); 
 	params = "";
@@ -139,6 +141,7 @@ function updateParams() {
 	if (modes.length > 0)
 		params += "M(" + modes + ")";
 	
+	setCookie();
 	console.log(params);
 }
 
@@ -149,11 +152,13 @@ function clearParams() {
 		inputs[i].checked = false;
 	
 	params = ""; // faster than updateParams();
+	setCookie();
 }
 
 // updates checklist based on param string argument
 // then updates actual param string based on checklist
 // avoids issues based on potentially malformed paramstring arguments
+// sets a cookie
 function setParams(newParams) {
 	clearParams();
 	
@@ -195,9 +200,33 @@ function initParams() {
 	}
 	
 	// check for cookie
+	var cookie = decodeURIComponent(document.cookie);
+	var ca = cookie.split(';');
 	
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		
+		if (c.indexOf("params") == 0) {
+			setParams(c.substring(7, c.length));
+			return;
+		}
+	}
+		
 	// default
+	setParams(defaultParam);
 	
+}
+
+function setCookie() {
+	//set a cookie
+	var d = new Date();
+	d.setTime(d.getTime() + (30*24*60*60*1000)); // 30 days from now
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = "params=" + params + ";" + expires + ";path=/";	
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
