@@ -1,5 +1,6 @@
 const pitchA = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", "B"];
 const defaultParam = "Ih1WDPBM(dplxao)"; // 300 level
+const site = "http://mrhanna.github.io/";
 var params = "";
 
 // randomly select and return a scale string based on user params (i.e. "major," "diminished," etc.)
@@ -221,12 +222,15 @@ function initParams() {
 	
 }
 
+//sets a cookie and updates share box
 function setCookie() {
 	//set a cookie
 	var d = new Date();
 	d.setTime(d.getTime() + (30*24*60*60*1000)); // 30 days from now
 	var expires = "expires="+ d.toUTCString();
-	document.cookie = "params=" + params + ";" + expires + ";path=/";	
+	document.cookie = "params=" + params + ";" + expires + ";path=/";
+	
+	document.getElementById("share").value = site + "?" + params;
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
