@@ -102,6 +102,16 @@
 		white-space:nowrap;
 	}
 	
+	.sidenav footer {
+		font-size:20px;	
+	}
+	
+	.sidenav footer #share {
+		font-size:20px;
+		background-color:black;
+		color:white;
+	}
+	
 	/* The navigation menu links */
 	.sidenav a {
 		padding: 8px 8px 8px 8px;
